@@ -14,11 +14,11 @@ import  { HeroService } from '../hero.service';
 })
 export class HeroesComponent implements OnInit {
 
-  heroes: Hero[];
+
   // selectedHero: Hero;
 
   constructor(private heroService: HeroService) { }
-
+heroes: Hero[]
   ngOnInit() {
     this.getHeroes();
   }
@@ -46,7 +46,7 @@ export class HeroesComponent implements OnInit {
   delete(hero: Hero): void {
   this.heroes = this.heroes.filter(h => h !== hero);
   this.heroService.deleteHero(hero).subscribe();
-}
+  }
 
     // add(name: string): void {
     //   name = name.trim();

@@ -1,7 +1,34 @@
+<h1> {{ title }} </h1>
+
 <!--The content below is only a placeholder and can be replaced.-->
 <div style="text-align:center">
+  Enter GitHub username: <input type="text" [(ngModel)]="userName">
+  <button (click)="search()">Search</button>
+<!-- <h1> {{ title }} </h1> -->
+<h1> GitHub User Details </h1>
+  <p> Login name: {{res.login}} </p>
+  <p> Number of repos: {{res.public_repos}} </p>
+  <p> Number of gists: {{res.public_gists}} </p>
+  <p> Number of followers: {{res.followers}} </p>
 
+  <h1>Player Details </h1>
+  <!-- <ul> -->
+  <li *ngFor="let player of response.players">{{player.id}} {{player.name}}
+          <!-- <span class="badge">{{player.id}}</span> {{player.name}} -->
+  </li>
+
+<h1> Articles </h1>
+<ol>
+  <h2 *ngFor="let article of resp.news">{{article.title}} {{article.published}}
+          <!-- <span class="badge">{{player.id}}</span> {{player.name}} -->
+  </h2>
+</ol>
+<!-- {{response.login}} -->
+<!-- <h1> Dog </h1>
 <h1> {{ title }} </h1>
+<h1> Cat </h1> -->
+<!-- {{ response.players[0].name }} -->
+
 <nav>
   <a routerLink="/dashboard">Dashboard</a>
   <a routerLink="/heroes">Heroes</a>
@@ -26,3 +53,5 @@
     <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
   </li>
 </ul>
+
+<h1> {{ title }} </h1>
