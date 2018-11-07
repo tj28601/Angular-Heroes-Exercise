@@ -1,7 +1,13 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <div style="text-align:center">
-
+  User name: <input type="text" [(ngModel)]="userName">
+  <button (click)="search()">Search</button>
+<!-- {{response.login}} -->
 <h1> {{ title }} </h1>
+<p> Login name: {{response.login}} </p>
+<p> Number of repos: {{response.public_repos}} </p>
+<p> Number of gists: {{response.public_gists}} </p>
+<p> Number of followers: {{response.followers}} </p>
 <nav>
   <a routerLink="/dashboard">Dashboard</a>
   <a routerLink="/heroes">Heroes</a>

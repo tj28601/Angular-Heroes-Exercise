@@ -30,13 +30,13 @@ import { HeroSearchComponent } from './hero-search/hero-search.component';
     FormsModule,
     AppRoutingModule,
     HttpClientModule,
-    HttpClientInMemoryWebApiModule,
+    // HttpClientInMemoryWebApiModule,
 
     // HttpClientInMemoryWebApiModule intercepts HTTP requests and returns simulated responses....Remove when a real server is ready to receive requests.
 
-    HttpClientInMemoryWebApiModule.forRoot(
-      InMemoryDataService, { dataEncapsulation: false }
-    )
+    // HttpClientInMemoryWebApiModule.forRoot(
+    //   InMemoryDataService, { dataEncapsulation: false }
+    // )
 
   ],
   providers: [],
