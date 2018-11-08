@@ -12,46 +12,25 @@ export class AppComponent {
   userName: string = "";
   playaz: any;
   apts: any;
-  playaz: Player[];
+  resp: any;
+  response: any;
+  res: any;
+
 
   constructor(private http: HttpClient) { }
 
   ngOnInit() {
-    // let obs = this.http.get('http://localhost:3000/api/v1/players');
-        // let obs = this.http.get('http://localhost:3000/api/v1/players');
-
-    //     this.http.get('http://api.github.com/users/koushikkothagal');
-    // // .subscribe((response) => console.log(response));
-    //
-    // .subscribe((response) => {
-    //   this.response = response;
-    //   console.log(this.response);
-    // })
-
-
-
-
-this.Players()
-    // this.http.get('http://localhost:3000/api/v1/players')
-    // .subscribe((Albania) => {
-    //   this.response = Albania;
-    //   console.log(this.response.players);
-    // })
-    // this.http.get('https://www.stellarbiotechnologies.com/media/press-releases/json?')
-    // .subscribe((Kosovo) => {
-    //   this.resp = Kosovo;
-    //   console.log(this.resp.news);
-    // })
+    this.Players()
     this.Articles()
   }
 
-Articles() {
-  this.http.get('https://www.stellarbiotechnologies.com/media/press-releases/json?')
-  .subscribe((Kosovo) => {
-    this.resp = Kosovo;
-    console.log(this.resp.news);
-  })
-}
+  Articles() {
+    this.http.get('https://www.stellarbiotechnologies.com/media/press-releases/json?')
+    .subscribe((Kosovo) => {
+      this.resp = Kosovo;
+      console.log(this.resp.news);
+    })
+  }
   Players () {
     this.http.get('http://localhost:3000/api/v1/players')
     .subscribe((Albania) => {
@@ -59,7 +38,6 @@ Articles() {
       console.log(this.response.players);
     })
   }
-// }
   search() {
     this.http.get('https://api.github.com/users/' + this.userName)
     .subscribe((response) => {
@@ -67,3 +45,4 @@ Articles() {
       console.log(this.res);
     })
   }
+}
