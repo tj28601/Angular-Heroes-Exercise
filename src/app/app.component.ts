@@ -1,48 +1,43 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-
+import { MydataserviceService } from './mydataservice.service';
+import { Photos, PhotosObj } from './_modal';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
+  providers: [MydataserviceService]
 })
-export class AppComponent {
-  title = 'Taylor\'s Heroes';
-  userName: string = "";
-  playaz: any;
-  apts: any;
-  resp: any;
-  response: any;
-  res: any;
+export class AppComponent implements OnInit {
+  title = 'app';
+  myPhotosList: Photos[] = [];
+  page: number = 1;
 
-
-  constructor(private http: HttpClient) { }
-
+  constructor(private service: MydataserviceService) { }
   ngOnInit() {
-    this.Players()
-    this.Articles()
+    this.getPhotos();
   }
 
-  Articles() {
-    this.http.get('https://www.stellarbiotechnologies.com/media/press-releases/json?')
-    .subscribe((Kosovo) => {
-      this.resp = Kosovo;
-      console.log(this.resp.news);
-    })
+  getPhotos() {
+    console.log(this.page);
+    this.service.getMyPhotos(this.page).subscribe((res) => this.onSuccess(res));
   }
-  Players () {
-    this.http.get('http://localhost:3000/api/v1/players')
-    .subscribe((Albania) => {
-      this.response = Albania;
-      console.log(this.response.players);
-    })
+
+  onSuccess(res) {
+    console.log(res);
+    if (res != undefined) {
+      // this.myPhotosList = [];
+      res.forEach(item => {
+        this.myPhotosList.push(new PhotosObj(item));
+      });
+    }
   }
-  search() {
-    this.http.get('https://api.github.com/users/' + this.userName)
-    .subscribe((response) => {
-      this.res = response;
-      console.log(this.res);
-    })
+
+  onScroll()
+  {
+    console.log("Scrolled");
+    this.page = this.page + 1;
+    this.getPhotos();
   }
+
 }
