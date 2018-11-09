@@ -1,6 +1,7 @@
 <h1> {{ title }} </h1>
 
 <!--The content below is only a placeholder and can be replaced.-->
+
 <div style="text-align:center">
   Enter GitHub username: <input type="text" [(ngModel)]="userName">
   <button (click)="search()">Search</button>
@@ -12,36 +13,43 @@
   <p> Number of followers: {{res.followers}} </p>
 
   <h1>Player Details </h1>
-  <!-- <ul> -->
+
   <li *ngFor="let player of response.players">{{player.id}} {{player.name}}
           <!-- <span class="badge">{{player.id}}</span> {{player.name}} -->
   </li>
 
 <h1> Articles </h1>
-<ol>
+<!-- <ol>
   <h2 *ngFor="let article of resp.news">{{article.title}} {{article.published}}
-          <!-- <span class="badge">{{player.id}}</span> {{player.name}} -->
+
   </h2>
-</ol>
-<!-- {{response.login}} -->
-<!-- <h1> Dog </h1>
-<h1> {{ title }} </h1>
-<h1> Cat </h1> -->
-<!-- {{ response.players[0].name }} -->
+</ol> -->
+
+<div class="row" infiniteScroll [infiniteScrollDistance]="2" [infiniteScrollThrottle]="80" (scrolled)="onScroll()" [scrollWindow]="false"
+  style="height: 200px; overflow-y: scroll;">
+  <ol>
+    <li *ngFor="let item of myArticlesList" class="col-md-4" style="margin-top: 10px; font-size: 30px">
+      {{item.id}}{{item.title}} {{item.published}}
+      <!-- <img style="height: 220px;width: 315px;" src="{{item.published}}" /> -->
+    </li>
+  </ol>
+  </div>
 
 <nav>
   <a routerLink="/dashboard">Dashboard</a>
   <a routerLink="/heroes">Heroes</a>
 </nav>
+
+
 <!-- <app-heroes></app-heroes> -->
+
+
 <router-outlet></router-outlet>
 <app-messages></app-messages>
 
-<!-- <app-hero-detail [hero]="selectedHero"></app-hero-detail> -->
 
-  <!-- <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg=="> -->
-</div>
-<h2>Here are some links to help you start: </h2>
+<!-- </div> -->
+<!-- <h2>Here are some links to help you start: </h2>
 <ul>
   <li>
     <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
@@ -54,4 +62,4 @@
   </li>
 </ul>
 
-<h1> {{ title }} </h1>
+<h1> {{ title }} </h1> -->
