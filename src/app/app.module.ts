@@ -16,6 +16,10 @@ import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService } from './in-memory-data.service';
 import { HeroSearchComponent } from './hero-search/hero-search.component';
 
+import { InfiniteScrollModule } from 'ngx-infinite-scroll';
+import { MatCardModule, MatToolbarModule, MatToolbar, MatButtonModule, MatButton, MatMenuModule } from '@angular/material';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,6 +34,12 @@ import { HeroSearchComponent } from './hero-search/hero-search.component';
     FormsModule,
     AppRoutingModule,
     HttpClientModule,
+    BrowserAnimationsModule,
+    InfiniteScrollModule,
+    MatCardModule,
+    MatToolbarModule,
+    MatButtonModule,
+    MatMenuModule
     // HttpClientInMemoryWebApiModule,
 
     // HttpClientInMemoryWebApiModule intercepts HTTP requests and returns simulated responses....Remove when a real server is ready to receive requests.
