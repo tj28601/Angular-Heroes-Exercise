@@ -1,22 +1,34 @@
 <h1> {{ title }} </h1>
 
-<!--The content below is only a placeholder and can be replaced.-->
+<!-- The content below is only a placeholder and can be replaced. -->
 
-<div style="text-align:center">
+ <div style="text-align:center">
   Enter GitHub username: <input type="text" [(ngModel)]="userName">
   <button (click)="search()">Search</button>
-<!-- <h1> {{ title }} </h1> -->
+ <h1> {{ title }} </h1>
 <h1> GitHub User Details </h1>
+<div *ngIf="res">
+
   <p> Login name: {{res.login}} </p>
   <p> Number of repos: {{res.public_repos}} </p>
   <p> Number of gists: {{res.public_gists}} </p>
   <p> Number of followers: {{res.followers}} </p>
-
+</div>
+</div>
   <h1>Player Details </h1>
 
-  <li *ngFor="let player of response.players">{{player.id}} {{player.name}}
-          <!-- <span class="badge">{{player.id}}</span> {{player.name}} -->
-  </li>
+  <!-- <li *ngFor="let player of response.players">{{player.id}} {{player.name}}
+  </li> -->
+
+  <div class="row" infiniteScroll [infiniteScrollDistance]="2" [infiniteScrollThrottle]="80" (scrolled)="enScroll()" [scrollWindow]="false"
+    style="height: 100px; overflow-y: scroll;">
+    <ol>
+      <li *ngFor="let item of myPlayersList" class="col-md-4" style="margin-top: 10px; font-size: 30px">
+        {{item.id}} {{item.name}}
+
+      </li>
+    </ol>
+    </div>
 
 <h1> Articles </h1>
 <!-- <ol>
@@ -30,7 +42,7 @@
   <ol>
     <li *ngFor="let item of myArticlesList" class="col-md-4" style="margin-top: 10px; font-size: 30px">
       {{item.id}}{{item.title}} {{item.published}}
-      <!-- <img style="height: 220px;width: 315px;" src="{{item.published}}" /> -->
+
     </li>
   </ol>
   </div>

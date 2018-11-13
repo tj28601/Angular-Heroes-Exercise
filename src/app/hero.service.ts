@@ -63,9 +63,9 @@ export class HeroService {
 
   // GET heroes from server:
     getHeroes (): Observable<Hero[]> {
-    console.log("cow")
-    console.log(Hero)
-    console.log("chicken")
+    // console.log("cow")
+    // console.log(Hero)
+    // console.log("chicken")
       return this.http.get<Hero[]>(this.heroesUrl).pipe(
           tap(_=> this.log('fetched heroes')),
           catchError(this.handleError('getHeroes', []))
