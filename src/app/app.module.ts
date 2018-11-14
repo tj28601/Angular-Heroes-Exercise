@@ -20,6 +20,8 @@ import { HeroSearchComponent } from './hero-search/hero-search.component';
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 import { MatCardModule, MatToolbarModule, MatToolbar, MatButtonModule, MatButton, MatMenuModule } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -40,7 +42,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     MatCardModule,
     MatToolbarModule,
     MatButtonModule,
-    MatMenuModule
+    MatMenuModule,
+    ServiceWorkerModule.register('/ngsw-worker.js', { enabled: environment.production })
     // HttpClientInMemoryWebApiModule,
 
     // HttpClientInMemoryWebApiModule intercepts HTTP requests and returns simulated responses....Remove when a real server is ready to receive requests.
