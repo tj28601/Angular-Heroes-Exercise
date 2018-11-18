@@ -18,10 +18,11 @@ import { InMemoryDataService } from './in-memory-data.service';
 import { HeroSearchComponent } from './hero-search/hero-search.component';
 
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
-import { MatCardModule, MatToolbarModule, MatToolbar, MatButtonModule, MatButton, MatMenuModule } from '@angular/material';
+// import { MatCardModule, MatToolbarModule, MatToolbar, MatButtonModule, MatButton, MatMenuModule } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
+import { PlayersComponent } from './players/players.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { environment } from '../environments/environment';
     HeroDetailComponent,
     MessagesComponent,
     DashboardComponent,
-    HeroSearchComponent
+    HeroSearchComponent,
+    PlayersComponent
   ],
   imports: [
     BrowserModule,
@@ -39,10 +41,10 @@ import { environment } from '../environments/environment';
     HttpClientModule,
     BrowserAnimationsModule,
     InfiniteScrollModule,
-    MatCardModule,
-    MatToolbarModule,
-    MatButtonModule,
-    MatMenuModule,
+    // MatCardModule,
+    // MatToolbarModule,
+    // MatButtonModule,
+    // MatMenuModule,
     ServiceWorkerModule.register('/ngsw-worker.js', { enabled: environment.production })
     // HttpClientInMemoryWebApiModule,
 
