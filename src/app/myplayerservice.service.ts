@@ -3,6 +3,7 @@ import { Player } from './player';
 import { Observable, of } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { catchError, map, tap } from 'rxjs/operators';
+import { LocalStorage } from '@ngx-pwa/local-storage';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -11,29 +12,41 @@ const httpOptions = {
 @Injectable({
   providedIn: 'root',
 })
+
 export class MyplayerserviceService {
 
     private playersUrl = '//localhost:3000/api/v1/players'; //URL to web api
     // player: ""
     // player: Player[] = [];
-  constructor(private http: HttpClient) { }
+    // localStorage: Player[] = [];
 
-  getMyPlayers(offset: number)
-  {
+//     let player: Player = { name: 'Quentin Thomas' };
+//
+// this.localStorage.setItem('player', player).subscribe(() => {});
+
+  constructor(private http: HttpClient, private localStorage: LocalStorage) { }
+ngOnInit() {
+
+  let player: Player = { name: '', id: 0 };
+   this.localStorage.setItem('player', player).subscribe(() => {});
+   console.log(player);
+   debugger
+}
+  // let player: Player = { name: 'Quentin Thomas' };
+
+// this.localStorage.setItem(player).subscribe(() => {});
+
+  getMyPlayers(offset: number) {
     return this.http.get('http://localhost:3000/api/v1/players?limit=10&offset='+offset);
   }
   /** POST: add a new hero to the server */
   addPlayer (player: Player): Observable<Player> {
 // debugger;
     return this.http.post<Player>(this.playersUrl, player, httpOptions).pipe(
-      // tap((player: Player) => console.log(`added player w/ id=${player.id}| async `)),
-      // tap((player => console.log(`just added ${player.name}`)),
       tap(_ => console.log(`just added ${player.name}`)),
       catchError(this.handleError<Player>('addPlayer'))
     );
-
   }
-// }
 
   private handleError<T> (operation = 'operation', result?: T) {
 

@@ -27,7 +27,7 @@ export class PlayersComponent implements OnInit {
     this.MyplayerserviceService.addPlayer({ name } as Player)
       .subscribe( player => {
         this.players.push(player);
-      
+
       });
   }
 
