@@ -15,6 +15,9 @@
   <p> Number of followers: {{res.followers}} </p>
 </div>
 </div>
+
+<div id="splitContainer">
+  <div id="splitLeft">
   <h1>Player Details </h1>
 
   <!-- <li *ngFor="let player of response.players">{{player.id}} {{player.name}}
@@ -29,12 +32,11 @@
       </li>
     </ol>
     </div>
-
+</div>
+<div id="splitRight">
 <h1> Articles </h1>
 <!-- <ol>
-  <h2 *ngFor="let article of resp.news">{{article.title}} {{article.published}}
-
-  </h2>
+  <h2 *ngFor="let article of resp.news">{{article.title}} {{article.published}}</h2>
 </ol> -->
 
 <div class="row" infiniteScroll [infiniteScrollDistance]="2" [infiniteScrollThrottle]="80" (scrolled)="onScroll()" [scrollWindow]="false"
@@ -46,6 +48,10 @@
     </li>
   </ol>
   </div>
+  
+</div>
+</div>
+
 
 <nav>
   <a routerLink="/dashboard">Dashboard</a>
@@ -58,20 +64,3 @@
 <app-players></app-players>
 <router-outlet></router-outlet>
 <app-messages></app-messages>
-
-
-<!-- </div> -->
-<!-- <h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://github.com/angular/angular-cli/wiki">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
-
-<h1> {{ title }} </h1> -->
